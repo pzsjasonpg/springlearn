@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <bean id="address" class="com.pzs.beans.autowire.Address">
+        <property name="city" value="BeiJing"></property>
+        <property name="street" value="HuiLongGuang"></property>
+    </bean>
+
+    <bean id="address2" class="com.pzs.beans.autowire.Address">
+        <property name="city" value="ZhunYi"></property>
+        <property name="street" value="ZhongShan"></property>
+    </bean>
+
+    <bean id="car" class="com.pzs.beans.autowire.Car">
+        <property name="brand" value="Audi"></property>
+        <property name="price" value="30000"></property>
+    </bean>
+
+    <!--<bean id="person" class="com.pzs.beans.autowire.Person">
+        <property name="name" value="Tom"></property>
+        <property name="address" ref="address"></property>
+        <property name="car" ref="car"></property>
+    </bean>-->
+
+    <!--    通过bean的名字和当前bean的setter风格的属性名自动装配-->
+    <!--<bean id="person" class="com.pzs.beans.autowire.Person" autowire="byName">
+        <property name="name" value="Tom"></property>
+    </bean>-->
+
+    <!--    通过bean的类型和当前bean的setter风格的属性类型自动装配了，若IOC容器中右1个以上的类型匹配的bean，则抛异常-->
+    <bean id="person" class="com.pzs.beans.autowire.Person" autowire="byType">
+        <property name="name" value="Tom"></property>
+    </bean>
+</beans>
