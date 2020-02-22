@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+
+    <!--    配置bean-->
+    <bean id="helloWorld" class="com.pzs.beans.helloworld.HelloWorld">
+        <property name="name2" value="Spring"></property>
+    </bean>
+
+    <bean id="car" class="com.pzs.beans.helloworld.Car">
+        <constructor-arg value="Baoma" index="0"></constructor-arg>
+        <constructor-arg value="Baoma" index="1"></constructor-arg>
+        <constructor-arg value="200" index="2"></constructor-arg>
+        <constructor-arg value="300000" index="3"></constructor-arg>
+    </bean>
+
+    <bean id="car2" class="com.pzs.beans.helloworld.Car">
+        <constructor-arg value="Baoma"></constructor-arg>
+        <constructor-arg value="Baoma"></constructor-arg>
+        <constructor-arg value="300000" type="float"></constructor-arg>
+    </bean>
+
+    <bean id="car3" class="com.pzs.beans.helloworld.Car">
+        <constructor-arg value="Baoma"></constructor-arg>
+        <constructor-arg value="Baoma"></constructor-arg>
+        <constructor-arg value="200" type="int"></constructor-arg>
+    </bean>
+
+    <bean id="car4" class="com.pzs.beans.helloworld.Car">
+        <constructor-arg value="Baoma" type="java.lang.String"></constructor-arg>
+        <constructor-arg type="java.lang.String">
+            <value><![CDATA[<ShangHai^>]]></value>
+        </constructor-arg>
+        <constructor-arg type="int">
+            <value>200</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="person" class="com.pzs.beans.helloworld.Person">
+        <property name="name" value="Tom"></property>
+        <property name="age" value="24"></property>
+        <property name="car" ref="car"></property>
+    </bean>
+
+    <bean id="person2" class="com.pzs.beans.helloworld.Person">
+        <property name="name" value="Tom"></property>
+        <property name="age" value="24"></property>
+        <property name="car">
+            <!--  内部bean-->
+            <bean class="com.pzs.beans.helloworld.Car">
+                <constructor-arg value="Baoma"></constructor-arg>
+                <constructor-arg value="Baoma"></constructor-arg>
+                <constructor-arg value="300000" type="float"></constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="person3" class="com.pzs.beans.helloworld.Person">
+        <property name="name" value="Tom"></property>
+        <property name="age" value="24"></property>
+        <property name="car">
+            <null/>
+        </property>
+    </bean>
+
+    <bean id="person4" class="com.pzs.beans.helloworld.Person">
+        <constructor-arg value="Jerry"></constructor-arg>
+        <constructor-arg value="45"></constructor-arg>
+        <constructor-arg ref="car"></constructor-arg>
+        <!--级联属性（对象属性）赋值-->
+        <!--注意：属性需要先初始化后才可以为级联属性赋值，否则会有异常，和Struct2不同-->
+        <!--car.maxSpeed属性值从200变到250-->
+        <property name="car.maxSpeed" value="250"></property>
+    </bean>
+
+    <bean id="personList" class="com.pzs.beans.helloworld.PersonList">
+        <constructor-arg value="gully"></constructor-arg>
+        <constructor-arg value="18"></constructor-arg>
+        <constructor-arg>
+            <list>
+                <ref bean="car"></ref>
+                <ref bean="car2"></ref>
+                <ref bean="car3"></ref>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="personMap" class="com.pzs.beans.helloworld.PersonMap">
+        <constructor-arg value="jenny"></constructor-arg>
+        <constructor-arg value="32"></constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="aa" value-ref="car"></entry>
+                <entry key="bb" value-ref="car2"></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="dataSource" class="com.pzs.beans.helloworld.DataSource">
+        <property name="properties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="password">123456</prop>
+                <prop key="jdbcUrl">jdbc:mysql://test</prop>
+                <prop key="driverClass">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--配置单例的集合bean，以供多个bean进行引用，需要导入util命名空间-->
+    <util:list id="cars">
+        <ref bean="car"/>
+        <ref bean="car2"/>
+        <ref bean="car3"/>
+    </util:list>
+
+    <bean id="personList2" class="com.pzs.beans.helloworld.PersonList">
+        <constructor-arg value="gully"></constructor-arg>
+        <constructor-arg value="18"></constructor-arg>
+        <constructor-arg ref="cars"></constructor-arg>
+    </bean>
+
+    <bean id="personList3" class="com.pzs.beans.helloworld.PersonList">
+    </bean>
+
+</beans>
