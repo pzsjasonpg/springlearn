@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+    <!--    abstract属性设为true，spring不会实例化这个bean-->
+    <bean id="address" class="com.pzs.beans.relation.Address" abstract="true">
+        <property name="city" value="BeiJing"></property>
+        <property name="street" value="HuiLongGuang"></property>
+    </bean>
+
+    <!--parent属性表示继承哪个bean，可以覆盖配置-->
+    <bean id="address2" class="com.pzs.beans.relation.Address" parent="address">
+        <property name="street" value="ZhongShan"></property>
+    </bean>
+
+    <!--    忽略class属性，必须将abstract属性设置为true-->
+    <bean id="address3" abstract="true">
+        <property name="city" value="ShangHai"></property>
+        <property name="street" value="HuiLongGuang"></property>
+    </bean>
+
+    <bean id="address4" class="com.pzs.beans.relation.Address" parent="address3">
+        <property name="street" value="ZhongShan"></property>
+    </bean>
+
+    <bean id="car" class="com.pzs.beans.relation.Car">
+        <property name="brand" value="Baoma"></property>
+        <property name="price" value="300000"></property>
+    </bean>
+
+    <bean id="person" class="com.pzs.beans.relation.Person" depends-on="car">
+        <property name="name" value="Tom"></property>
+        <property name="address" ref="address2"></property>
+    </bean>
+
+</beans>
