@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--静态工厂方法配置bean-->
+    <!--
+        class属性：指向静态工厂方法的全类名
+        factory-method: 指向静态工厂方法的名字
+        constructor-arg: 如果工厂方法需要传入参数，则使用constructor-arg来配置参数
+    -->
+    <bean id="car" class="com.pzs.spring.beans.factory.StaticCarFactory" factory-method="getCar">
+        <constructor-arg value="BaoMa"></constructor-arg>
+    </bean>
+
+    <!--配置工厂的实例-->
+    <bean id="carFactory" class="com.pzs.spring.beans.factory.InstanceCarFactory"></bean>
+
+    <bean id="car2" factory-bean="carFactory" factory-method="getCar">
+        <constructor-arg value="Ford"></constructor-arg>
+    </bean>
+
+
+</beans>
