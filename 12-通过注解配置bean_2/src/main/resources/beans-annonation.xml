@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!--通过resource-pattern扫描指定的包下所有类-->
+    <!--<context:component-scan base-package="com.pzs.spring.beans.annonation" resource-pattern="repository/*.class">
+    </context:component-scan>-->
+
+    <!--不包含注解Repository的类-->
+    <!--<context:component-scan base-package="com.pzs.spring.beans.annonation">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"></context:exclude-filter>
+    </context:component-scan>-->
+
+    <!--指定只扫描某个注解过的类-->
+    <!--<context:component-scan base-package="com.pzs.spring.beans.annonation" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"></context:include-filter>
+    </context:component-scan>-->
+
+    <!--指定排除目标类继承或扩展某个类-->
+    <!--<context:component-scan base-package="com.pzs.spring.beans.annonation">
+        <context:exclude-filter type="assignable" expression="com.pzs.spring.beans.annonation.repository.UserRepository"></context:exclude-filter>
+    </context:component-scan>-->
+
+    <!--指定包含目标类继承或扩展某个类-->
+    <!--<context:component-scan base-package="com.pzs.spring.beans.annonation" use-default-filters="false">
+        <context:include-filter type="assignable" expression="com.pzs.spring.beans.annonation.repository.UserRepository"></context:include-filter>
+    </context:component-scan>-->
+
+    <context:component-scan base-package="com.pzs.spring.beans.annonation">
+    </context:component-scan>
+
+</beans>
