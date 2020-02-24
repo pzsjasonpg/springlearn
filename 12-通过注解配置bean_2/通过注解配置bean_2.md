@@ -1,3 +1,5 @@
+[TOC]
+
 ```<context:component-scan> ```元素还会自动注册 AutowiredAnnotationBeanPostProcessor 实例, 该实例可以自动装配具有 **@Autowired** 和 @Resource 、@Inject注解的属性.
 
 ## @Autowired

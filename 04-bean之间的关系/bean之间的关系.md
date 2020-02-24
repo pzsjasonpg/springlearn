@@ -1,3 +1,7 @@
+[TOC]
+
+
+
 ## 继承bean配置
 
 - **Spring** **允许继承** **bean** **的配置**, 被继承的 bean 称为父 bean. 继承这个父 Bean 的 Bean 称为子 Bean

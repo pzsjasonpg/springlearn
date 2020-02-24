@@ -1,3 +1,7 @@
+[TOC]
+
+
+
 ## 在classpath中扫描组件
 
 组件扫描(component scanning):  Spring 能够从 classpath 下自动扫描, 侦测和实例化具有特定注解的组件. 

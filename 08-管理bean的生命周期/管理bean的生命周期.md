@@ -1,3 +1,7 @@
+[TOC]
+
+
+
 ## IOC容器中bean的生命周期方法
 
 Spring IOC 容器可以管理 Bean 的生命周期, Spring 允许在 Bean 生命周期的特定点执行定制的任务. 
