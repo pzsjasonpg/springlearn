@@ -25,7 +25,7 @@
 - ```<context:component-scan> ```下可以拥有若干个 ```<context:include-filter>``` 和 ```<context:exclude-filter> ```子节点
 - ```<context:include-filter>``` 和 ```<context:exclude-filter> ```子节点支持多种类型的过滤表达式：
 
-![https://github.com/pzsjasonpg/springlearn/blob/master/11-%E9%80%9A%E8%BF%87%E6%B3%A8%E8%A7%A3%E9%85%8D%E7%BD%AEbean/filtertype.png](https://github.com/pzsjasonpg/springlearn/blob/master/11-%E9%80%9A%E8%BF%87%E6%B3%A8%E8%A7%A3%E9%85%8D%E7%BD%AEbean/filtertype.png)
+![https://github.com/pzsjasonpg/springlearn/blob/master/img/filtertype.png](https://github.com/pzsjasonpg/springlearn/blob/master/img/filtertype.png)
 
 ### resource-pattern属性
 
