@@ -1,1 +1,1 @@
-[https://github.com/pzsjasonpg/springlearn/blob/master/img/aop-xml-config.png](https://github.com/pzsjasonpg/springlearn/blob/master/img/aop-xml-config.png)
+![https://github.com/pzsjasonpg/springlearn/blob/master/img/aop-xml-config.png](https://github.com/pzsjasonpg/springlearn/blob/master/img/aop-xml-config.png)
