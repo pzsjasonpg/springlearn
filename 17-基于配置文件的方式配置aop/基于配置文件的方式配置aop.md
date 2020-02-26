@@ -1,1 +1,1 @@
-[基于配置文件的方式配置aop](https://github.com/pzsjasonpg/springlearn/blob/master/img/aop-xml-config.png)
+[https://github.com/pzsjasonpg/springlearn/blob/master/img/aop-xml-config.png](https://github.com/pzsjasonpg/springlearn/blob/master/img/aop-xml-config.png)
